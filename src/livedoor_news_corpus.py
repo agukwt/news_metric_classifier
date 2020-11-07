@@ -8,7 +8,7 @@ CORPUS_INTEGRATE_PATH = CORPUS_DIR_PATH.joinpath(__CORPUS_DIR_PATH_CHILD_NN)
 
 
 def extract_main_txt(file_path) -> str:
-    """[summ本文を取得する前処理関数を定義ry]
+    """[summ本文を取得する前処理関数を定義]
 
     Parameters
     ----------

@@ -87,3 +87,6 @@ torchtext = "*"
 
 [requires]
 python_version = "3.8"
+
+[scripts]
+test = "pytest src/tests/ -W ignore::DeprecationWarning"

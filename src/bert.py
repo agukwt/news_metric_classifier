@@ -22,7 +22,7 @@ class Bert(object):
         return None
 
     def set_pretrainned_config(self):
-        self.model = BertConfig(str(self.bert_dir))
+        self.config = BertConfig(str(self.bert_dir))
 
         return None
 
