@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 pytest = "*"
+rope = "*"
 
 [packages]
 attrs = "==20.2.0"
@@ -90,3 +91,4 @@ python_version = "3.8"
 
 [scripts]
 test = "pytest src/tests/ -W ignore::DeprecationWarning"
+test_dataset = "pytest src/tests/test_dataset.py"
