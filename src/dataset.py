@@ -1,6 +1,8 @@
 import itertools
 import random
 import pandas as pd
+from torch.utils import data
+
 
 from src.util import CORPUS_DIR_PATH
 
@@ -133,3 +135,28 @@ def make_contrastive_dataflame(textfile_dict: dict, contrastive_num=250):
         contrastive_df = pd.concat([contrastive_df, cat_contrastive_df], axis=0)
     
     return contrastive_df.reset_index(drop=True)
+
+
+class ContrastiveDataSet(data.Dataset):
+    def __init__(self, constractive_data, transform, phase):
+        self.constractive_data = constractive_data
+        self.transform = transform
+        self.phase = phase
+    
+    def __len__(self):
+        return self.constractive_data.shape[0]
+    
+    def __getitem__(self, index):
+        """ transformed text と label(positive:0 /negative:1 )を取得
+        """
+
+        # index番目のデータフレームから、transformed text と labelを作成
+        # index番目のデータフレーム選択
+        cont_object = self.constractive_data.iloc[index]
+        # 定義による変換結果を取得
+        transformed_antecedent = self.transform(cont_object['antecedent_path'], self.phase)
+        transformed_descendant = self.transform(cont_object['descendant_path'], self.phase)
+        # 対照観点が'positve'なら、0を、そうでなければ、1を代入
+        label = 0 if cont_object['contrastive_viewpoint'] == 'positve' else 1
+
+        return transformed_antecedent, transformed_descendant, label

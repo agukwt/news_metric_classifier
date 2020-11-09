@@ -12,15 +12,13 @@ __PREPROCESSED_DIR_NM = 'preprocessed'
 __SRC_DIR_NM = 'news_metric_cluster'
 __pretrained_BERT_NM = 'BERT-base_mecab-ipadic-bpe-32k_whole-word-mask'
 CORPUS_DIR_NM = 'ldcc-20140209.tar'
-
-# File_Name(NM)
-TRAIN_EVAL_NM = 'train_eval.tsv'
-TEST_NM = 'test.tsv'
+COTEGORY_INTEGRATE_DIR_NM = 'text'
 
 # Global Variable
 WORK_DIR_PATH = this_dir.parent.parent
 DATA_DIR_PATH = WORK_DIR_PATH.joinpath(__DATA_DIR_NM)
 CORPUS_DIR_PATH = DATA_DIR_PATH.joinpath(CORPUS_DIR_NM)
+COTEGORY_INTEGRATE_DIR_PATH = CORPUS_DIR_PATH.joinpath(COTEGORY_INTEGRATE_DIR_NM)
 
 PREPROCESSED_DIR_PATH = DATA_DIR_PATH.joinpath(__PREPROCESSED_DIR_NM)
 SRC_DIR_PATH = WORK_DIR_PATH.joinpath(__SRC_DIR_NM)
