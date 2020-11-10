@@ -156,7 +156,7 @@ class ContrastiveDataSet(data.Dataset):
         # 定義による変換結果を取得
         transformed_antecedent = self.transform(cont_object['antecedent_path'], self.phase)
         transformed_descendant = self.transform(cont_object['descendant_path'], self.phase)
-        # 対照観点が'positve'なら、0を、そうでなければ、1を代入
-        label = 0 if cont_object['contrastive_viewpoint'] == 'positve' else 1
+        # 対照観点が'positive'なら、0を、そうでなければ、1を代入
+        label = 0 if cont_object['contrastive_viewpoint'] == 'positive' else 1
 
         return transformed_antecedent, transformed_descendant, label
